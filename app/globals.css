@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-box{
+  padding: 2px;
+  border: 2px solid black;
+}
+
+.input-box-flex{
+  padding: 2px;
+  border: 2px solid black;
+  width: 8rem;
+}
