@@ -53,28 +53,42 @@ const ConfigForm: React.FC<ConfigFormProps> = ({ onConfigChange, isRadio }) => {
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-3">
         <p className="text-xl font-bold mt-4">Primary</p>
-        <div className="flex gap-1">
-          <div className="flex flex-col">
-            <label>Background Color</label>
-            <input
-              className="input-box-flex"
-              type="text"
-              name="primaryColor"
-              value={config.primaryColor}
-              onChange={handleChange}
-            />
+        {
+          isRadio ? (
+            <div className="flex flex-col">
+                    <label>Background Color</label>
+                    <input
+                      className="input-box"
+                      type="text"
+                      name="primaryColor"
+                      value={config.primaryColor}
+                      onChange={handleChange}
+                    />
+                  </div>):(
+            <div className="flex gap-1">
+            <div className="flex flex-col">
+              <label>Background Color</label>
+              <input
+                className="input-box-flex"
+                type="text"
+                name="primaryColor"
+                value={config.primaryColor}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="flex flex-col">
+              <label>Text Color</label>
+              <input
+                className="input-box-flex"
+                type="text"
+                name="primaryTextColor"
+                value={config.primaryTextColor}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label>Text Color</label>
-            <input
-              className="input-box-flex"
-              type="text"
-              name="primaryTextColor"
-              value={config.primaryTextColor}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+              )
+        }
 
         {isRadio ? (
           <div className="flex flex-col">
@@ -137,28 +151,45 @@ const ConfigForm: React.FC<ConfigFormProps> = ({ onConfigChange, isRadio }) => {
 
       <div className="flex flex-col gap-3">
         <p className="text-xl font-bold mt-4">Secondary</p>
-        <div className="flex gap-1">
-          <div className="flex flex-col">
+
+{
+  isRadio ? (
+    <div className="flex flex-col">
             <label>Background Color</label>
             <input
-              className="input-box-flex"
+              className="input-box"
               type="text"
               name="secondaryColor"
               value={config.secondaryColor}
               onChange={handleChange}
             />
-          </div>
-          <div className="flex flex-col">
-            <label>Text Color</label>
-            <input
-              className="input-box-flex"
-              type="text"
-              name="secondaryTextColor"
-              value={config.secondaryTextColor}
-              onChange={handleChange}
-            />
-          </div>
+          </div>):(
+        <div className="flex gap-1">
+        <div className="flex flex-col">
+          <label>Background Color</label>
+          <input
+            className="input-box-flex"
+            type="text"
+            name="secondaryColor"
+            value={config.secondaryColor}
+            onChange={handleChange}
+          />
         </div>
+        <div className="flex flex-col">
+          <label>Text Color</label>
+          <input
+            className="input-box-flex"
+            type="text"
+            name="secondaryTextColor"
+            value={config.secondaryTextColor}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+          )
+}
+
+
         {isRadio ? (
           <div className="flex flex-col">
             <label>Size</label>
