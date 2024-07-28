@@ -19,6 +19,10 @@ const User = mongoose.model('User', {
   password: String
 });
 
+app.get("/",async (req,res)=>{
+ res.send("Hello World")
+})
+
 // Registration endpoint
 app.post('/register', async (req, res) => {
   try {
