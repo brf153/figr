@@ -3,27 +3,17 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
+import { useAuth } from '../context/AuthContext';
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
+  const {register} = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, email, password }),
-      });
-
-      if (response.ok) {
-        router.push('/login');
-      } else {
-        throw new Error('Registration failed');
-      }
+      await register(username, email, password)
     } catch (error) {
       console.error('Registration error:', error);
     }
