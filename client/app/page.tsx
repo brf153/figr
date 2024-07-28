@@ -10,6 +10,7 @@ import Select from "./components/Select";
 import { Styles } from "./consts/types";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { SignIn } from "@clerk/clerk-react";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const Home: React.FC = () => {
   const [styles, setStyles] = useState<Styles>({
@@ -133,8 +134,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <>
-      <SignedIn>
+    <ProtectedRoute>
         <div className="w-screen h-screen flex">
           <div className="flex-1 relative h-full overflow-x-hidden flex justify-center items-center">
             <div className="flex gap-4 absolute top-10 right-3">
@@ -183,13 +183,7 @@ const Home: React.FC = () => {
             <ConfigForm onConfigChange={handleConfigChange} isRadio={isRadio} />
           </div>
         </div>
-      </SignedIn>
-      <SignedOut>
-        <div className="w-screen h-screen flex justify-center items-center">
-          <SignIn />
-        </div>
-      </SignedOut>
-    </>
+        </ProtectedRoute>
   );
 };
 

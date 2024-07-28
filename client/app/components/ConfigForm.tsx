@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useAuth } from "../context/AuthContext";
 
 interface Config {
   primaryColor: string;
@@ -21,6 +22,8 @@ interface ConfigFormProps {
 }
 
 const ConfigForm: React.FC<ConfigFormProps> = ({ onConfigChange, isRadio }) => {
+  const { logout } = useAuth();
+
   const [config, setConfig] = useState<Config>({
     primaryColor: "",
     primaryTextColor: "",
@@ -249,12 +252,17 @@ const ConfigForm: React.FC<ConfigFormProps> = ({ onConfigChange, isRadio }) => {
         )}
       </div>
 
+<div className="flex mt-10 justify-between">
+
+<button className="bg-black text-white w-auto p-2" onClick={logout}>Logout</button>
+
       <button
-        className="mt-10 p-2 bg-black text-white w-full md:w-auto"
+        className="bg-black text-white w-auto p-2"
         type="submit"
       >
         Save
       </button>
+</div>
     </form>
   );
 };
