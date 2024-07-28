@@ -33,10 +33,10 @@ const ConfigForm: React.FC<ConfigFormProps> = ({ onConfigChange, isRadio }) => {
   const [config, setConfig] = useState<Config>({
     primaryColor: "#00b4d8",
     primaryTextColor: "#FFFFFF",
-    primaryBorderColor: "#FFFFFF",
+    primaryBorderColor: "#000000",
     secondaryColor: "#F5FFFA",
     secondaryTextColor: "#000000",
-    secondaryBorderColor: "#FFFFFF",
+    secondaryBorderColor: "#000000",
     borderRadius: 1,
     paddingX: 1,
     paddingY: 1,
