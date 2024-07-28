@@ -4,13 +4,14 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors')
+require("dotenv").config()
 
 const app = express();
 app.use(express.json());
 app.use(cors())
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://Bhandari:bhandari12345@cluster0.wqf4ixe.mongodb.net/figr?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // User model
 const User = mongoose.model('User', {
