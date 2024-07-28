@@ -24,19 +24,25 @@ interface ConfigFormProps {
 const ConfigForm: React.FC<ConfigFormProps> = ({ onConfigChange, isRadio }) => {
   const { logout } = useAuth();
 
+  // borderRadius: "1rem",
+  // paddingTop: "1rem",
+  // paddingBottom: "1rem",
+  // paddingLeft: "1rem",
+  // paddingRight: "1rem",
+
   const [config, setConfig] = useState<Config>({
-    primaryColor: "",
-    primaryTextColor: "",
-    primaryBorderColor: "",
-    secondaryColor: "",
-    secondaryTextColor: "",
-    secondaryBorderColor: "",
-    borderRadius: 0,
-    paddingX: 0,
-    paddingY: 0,
-    secondaryBorderRadius: 0,
-    secondaryPaddingX: 0,
-    secondaryPaddingY: 0,
+    primaryColor: "#00b4d8",
+    primaryTextColor: "#FFFFFF",
+    primaryBorderColor: "#FFFFFF",
+    secondaryColor: "#F5FFFA",
+    secondaryTextColor: "#000000",
+    secondaryBorderColor: "#FFFFFF",
+    borderRadius: 1,
+    paddingX: 1,
+    paddingY: 1,
+    secondaryBorderRadius: 1,
+    secondaryPaddingX: 1,
+    secondaryPaddingY: 1,
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

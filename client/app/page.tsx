@@ -8,31 +8,29 @@ import Radio from "./components/Radio";
 import Checkbox from "./components/Checkbox";
 import Select from "./components/Select";
 import { Styles } from "./consts/types";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { SignIn } from "@clerk/clerk-react";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const Home: React.FC = () => {
   const [styles, setStyles] = useState<Styles>({
     primary: {
-      backgroundColor: "",
-      color: "",
-      borderRadius: "",
-      paddingTop: "",
-      paddingBottom: "",
-      paddingLeft: "",
-      paddingRight: "",
+      backgroundColor: "#00b4d8",
+      color: "#FFFFFF",
+      borderRadius: "1rem",
+      paddingTop: "1rem",
+      paddingBottom: "1rem",
+      paddingLeft: "1rem",
+      paddingRight: "1rem",
       width: "fit",
       border: "1px solid black",
     },
     secondary: {
-      backgroundColor: "",
-      color: "",
-      borderRadius: "",
-      paddingTop: "",
-      paddingBottom: "",
-      paddingLeft: "",
-      paddingRight: "",
+      backgroundColor: "#F5FFFA",
+      color: "#000000",
+      borderRadius: "1rem",
+      paddingTop: "1rem",
+      paddingBottom: "1rem",
+      paddingLeft: "1rem",
+      paddingRight: "1rem",
       width: "fit",
       border: "1px solid black",
     },
@@ -43,7 +41,7 @@ const Home: React.FC = () => {
   >("button");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isRadio, setIsRadio] = useState(false);
-  const [unit, setUnit] = useState("px");
+  const [unit, setUnit] = useState("rem");
 
   useEffect(() => {
     const storedConfig = getStoredConfig();

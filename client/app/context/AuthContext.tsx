@@ -10,6 +10,9 @@ interface AuthContextType {
   logout: () => void;
 }
 
+const backendURL = "https://figr-backend.vercel.app"
+// const backendURL = "http://localhost:4000"
+
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -25,7 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post('https://figr-backend.vercel.app/login', { email, password });
+      const response = await axios.post(`${backendURL}/login`, { email, password });
       const { token } = response.data;
       localStorage.setItem('token', token);
       setUser({ token });
@@ -38,7 +41,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const register = async (username: string, email: string, password: string) => {
     try {
-      const response = await axios.post('https://figr-backend.vercel.app/register', { username, email, password });
+      const response = await axios.post(`${backendURL}/register`, { username, email, password });
       const { token } = response.data;
       localStorage.setItem('token', token);
       setUser({ token });
